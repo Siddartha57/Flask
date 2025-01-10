@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}
+payment
+{% endblock %}
+{% block content %}
+
+<div class="container-md">
+<div class="container px-4 text-center">
+   <div class="row gx-5">
+      <div class="col">
+         <div class="p-3 border bg-dark">
+            <h6>DETAILS</h6>
+            <hr>
+            <strong class="m-2" style="color:#F77F43;">Name :</strong> {{ current_user.username }}<br><br>
+            <strong class="m-2" style="color:#F77F43;">Email :</strong> {{ current_user.email_address }}<br><br>
+            <strong class="m-2" style="color:#F77F43;">Contact :</strong> {{ current_user.phone }}<br><br>
+            <strong class="m-2" style="color:#F77F43;">From :</strong> {{ From }}<br><br>
+            <strong class="m-2" style="color:#F77F43;">To :</strong> {{ To }}<br><br>
+            <strong class="m-2" style="color:#F77F43;">Distance :</strong> {{ dist }} Km<br><br>
+            <strong class="m-2" style="color:#F77F43;">Amount:</strong> ₹{{ Amount }}<br><br>
+            <strong class="m-2" style="color:#F77F43;">Time:</strong>{{ Time }} Hrs<br><br>
+            <strong class="m-2" style="color:#F77F43;">Date:</strong> {{ Date }}
+         </div>
+      </div>
+      <div class="col">
+         <div class="p-3 border bg-light" style="color:black;">
+            <h6>PAYMENT</h6>
+            <hr>
+            <div class="text-center">
+               <img src="https://res.cloudinary.com/dugry0jta/image/upload/QR_eo7hah.webp" class="rounded" alt="Error"><br>
+               <p style="font:bold"><strong class="m-2" style="color:green;">Pay :</strong> ₹{{ Amount }}</p>
+            </div>
+            <br>
+            <div>
+               <div class="d-flex pt-3 pl-3">
+                  <div><img src="https://img.icons8.com/ios-filled/50/000000/visa.png" width="60" height="80" class="m-2"/></div>
+                  <div class="mt-3 pl-2">
+                     <span class="name">Martina Thomas</span>
+                     <div><span class="cross">&#10005&#10005&#10005&#10005</span><span class="pin ml-2">8880</span></div>
+                  </div>
+               </div>
+               <div class="py-2  px-3">
+                  <div class="first pl-2 d-flex py-2">
+                     <div class="form-check">
+                        <input type="radio" name="optradio" class="form-check-input mt-3 dot" checked>Scan and Pay<br>Powered by paytm
+                     </div>
+                  </div>
+               </div>
+               <div class="d-flex justify-content-around px-3 pt-4 pb-3">
+                  <a href="{{url_for('booking_page')}}"><button type="button" class="btn btn-danger">Go Back</button></a>
+                  <a href="{{ url_for('my_booking_page') }}"><button type="button" class="btn btn-success">Pay Here</button></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<style>
+    body{
+        background: url('https://res.cloudinary.com/dugry0jta/image/upload/payment_jrfaq6.webp') center center/cover;
+        color:white;
+    }
+
+</style>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <div class="d-flex flex-row mb-3"><img src="https://res.cloudinary.com/dugry0jta/image/upload/book_q3umqj.png" width="70" class="m-3">
+                        <div class="d-flex flex-column ml-2"><span>Book Ticket</span><span class="text-black-50">Click Below</span><span class="ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></div>
+                    </div>
+                    <a class="btn btn-primary btn-xl" href="{{ url_for('booking_page') }}">Book</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <div class="d-flex flex-row mb-3"><img src="https://res.cloudinary.com/dugry0jta/image/upload/booking_z0j1yd.png" class="m-3" width="70">
+                        <div class="d-flex flex-column ml-2"><span>My Bookings</span><span class="text-black-50">Check Your Ticket Here</span><span class="ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></div>
+                    </div>
+                    <a class="btn btn-primary btn-xl" href="{{ url_for('my_booking_page') }}">My Bookings</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-3">
+                    <div class="d-flex flex-row mb-3"><img src="https://res.cloudinary.com/dugry0jta/image/upload/Profile_zdsddy.png" class="m-3" width="70">
+                        <div class="d-flex flex-column ml-2"><span>Profile</span><span class="text-black-50">Check Your Details</span><span class="ratings"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span></div>
+                    </div>
+                    <a class="btn btn-primary btn-xl" href="{{ url_for('profile_page') }}">Profile</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endif %}
+<style>
+    body {
+  background: url('https://res.cloudinary.com/dugry0jta/image/upload/main_bg_otc2qa.jpg') center center/cover;
+
+}
+
+.ratings i {
+  color: green;
+}
+
+.install span {
+  font-size: 12px;
+}
+
+.col-md-4 {
+  margin-top: 27px;
+}
+</style>
+{% endblock %}

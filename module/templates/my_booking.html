@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+My Bookings
+{% endblock %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+
+<div class="container">
+   <div class="p-3 border bg-light" style="color:black;">
+      <h6>TICKET</h6>
+      <hr>
+      <div class="text-center">
+         <img src="https://res.cloudinary.com/dugry0jta/image/upload/QR_eo7hah.webp" class="rounded" alt="Error"><br>
+         <p style="font:bold"><strong class="m-2" style="color:#ff6600;">Amount Paid :</strong> <span>₹{{ Amount }}.00</span></p>
+         <p style="font:bold"><strong class="m-2" style="color:black;">Passenger :</strong> {{ current_user.username }}</p>
+         <p style="font:bold"><strong class="m-2" style="color:black;">Ticket No :</strong> TKT5720075377</p>
+         <p style="font:bold"><strong class="m-2" style="color:black;">UTR :</strong> 152763817632</p>
+         <p style="font:bold"><strong class="m-2" style="color:black;">Payment Status :</strong> <strong style="color:#00cc00">Success</strong></p>
+      </div>
+      <div class="d-flex justify-content-around px-3 pt-4 pb-3">
+         <a href="{{url_for('home_page')}}"><button type="button" class="btn btn-danger">Go Back</button></a>
+         <a href="#"><button type="button" class="btn btn-success">Print</button></a>
+      </div>
+   </div>
+</div>
+</div>
+
+{% else %}
+
+<div class="container">
+   <div class="p-3 border bg-light" style="color:black;">
+      <h6>Book Your Ticket Here!</h6>
+      <hr>
+      <div class="d-flex justify-content-around px-3 pt-4 pb-3">
+         <a href="{{url_for('home_page')}}"><button type="button" class="btn btn-danger">Go Back</button></a>
+         <a href="{{ url_for('booking_page') }}"><button type="button" class="btn btn-success">Book</button></a>
+      </div>
+   </div>
+</div>
+</div>
+
+{% endif %}
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+{% endblock %}
